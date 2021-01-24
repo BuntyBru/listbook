@@ -5,12 +5,39 @@
 }
 
 .login__container {
-  height: 456px;
+  min-height: 300px;
   width: 396px;
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   align-items: center;
   background-color: #fff;
+  border: none;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.formField p {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.formField input {
+  margin-top: 2rem;
+  font-size: 17px;
+  padding: 14px 16px;
+}
+
+.formField button {
+  padding: 16px;
+  margin-top: 2rem;
+  font-weight: 800;
+  color: white;
+  font-size: 18px;
+  background-color: #18f2bf;
   border: none;
 }

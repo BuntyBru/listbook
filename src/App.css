@@ -1,3 +1,9 @@
+.error-msg {
+  color: #f54d4d;
+  font-weight: 500;
+  font-size: 14px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
