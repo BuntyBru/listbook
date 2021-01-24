@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Login.css";
 import { Formik, Form, ErrorMessage } from "formik";
-
 import { Input } from "../../styled-comps/Wrapper";
+import { AuthenticationContext } from "../../Context/AuthenticationContext";
 
-function Login() {
+const Login = () => {
+  const { login } = useContext(AuthenticationContext);
+
   return (
     <div className="login">
       <div className="login__container">
@@ -29,6 +31,13 @@ function Login() {
           }}
           onSubmit={(values, { setSubmitting }) => {
             console.log(JSON.stringify(values, null, 2));
+            login(values.email, values.password)
+              .then((res) => {
+                console.log(res);
+              })
+              .catch((e) => {
+                console.log("Error", e);
+              });
             setSubmitting(false);
           }}
         >
@@ -68,7 +77,7 @@ function Login() {
                 className="error-msg"
               />
               <button type="submit" disabled={isSubmitting}>
-                {!isSubmitting ? <span>Login</span> : <span>Loading</span>}
+                {!isSubmitting ? <span>Login</span> : <span>Loading...</span>}
               </button>
             </Form>
           )}
@@ -76,6 +85,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;
