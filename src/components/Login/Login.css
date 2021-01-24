@@ -1,0 +1,16 @@
+.login {
+  background: #eff2f5;
+  min-height: 100vh;
+  padding-top: 72px;
+}
+
+.login__container {
+  height: 456px;
+  width: 396px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  align-items: center;
+  background-color: #fff;
+  border: none;
+}
