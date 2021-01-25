@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { Formik, Form, ErrorMessage } from "formik";
-import { Input } from "../../styled-comps/Wrapper";
+import { ErrorMessageTwo, Input } from "../../styled-comps/Wrapper";
 import { AuthenticationContext } from "../../Context/AuthenticationContext";
 
 const Login = () => {
   const { login } = useContext(AuthenticationContext);
+  const [error, setError] = useState("");
 
   return (
     <div className="login">
       <div className="login__container">
+        <ErrorMessageTwo errorShow={error === "" ? false : true}>
+          {error}
+        </ErrorMessageTwo>
         <Formik
           initialValues={{ email: "", password: "" }}
           validate={(values) => {
@@ -30,13 +34,16 @@ const Login = () => {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
+            setError("");
             console.log(JSON.stringify(values, null, 2));
             login(values.email, values.password)
-              .then((res) => {
-                console.log(res);
+              .then((data) => {
+                console.log(data);
+                setError("");
               })
               .catch((e) => {
                 console.log("Error", e);
+                setError(e.response.data.message);
               });
             setSubmitting(false);
           }}

@@ -1,6 +1,19 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import FilteredPropsInputField from "../Helpers/FilteredPropsInputField";
 
+const bounceIn = keyframes`
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+`;
 export const PageWrapper = styled.section`
   &,
   & * {
@@ -136,13 +149,17 @@ export const Input = styled(FilteredPropsInputField)`
 `;
 
 export const ErrorMessageTwo = styled.div`
-  background-color: rgb(255, 245, 245);
-  color: rgb(120, 27, 0);
-  display: block;
-
+  display: ${(props) => (props.errorShow ? "block" : "none")};
+  background-color: #fce8e6;
+  color: #d93025;
   padding: 0.5rem 0.75rem;
-  margin-top: 0.5rem;
   white-space: pre-line;
+  margin: 0px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  animation-duration: 1s;
+  animation-name: ${bounceIn};
 `;
 
 export const StyledInlineErrorMessage = styled.div`

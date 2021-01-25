@@ -9,6 +9,7 @@ const AuthenticationContextProvider = (props) => {
   const login = (username, password) => {
     return auth.login(username, password).then((data) => {
       setUser(data.data);
+      return Promise.resolve(data);
     });
   };
 

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { my_app, URL } from "./constant";
 
 const getUser = () => {
@@ -75,7 +74,7 @@ const login = (username, password) => {
   let data = { email: username, password: password };
 
   return new Promise((resolve, reject) => {
-    axios
+    my_app
       .post(`${URL}/api/v1/user-management/users/login/`, data)
       .then((response) => {
         localStorage.setItem("my_app_user", JSON.stringify(response.data.data));
@@ -83,6 +82,7 @@ const login = (username, password) => {
         resolve(response);
       })
       .catch((error) => {
+        console.log(error.response.data.message);
         reject(error);
         //  return error;
       });
