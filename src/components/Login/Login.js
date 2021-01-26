@@ -4,9 +4,10 @@ import { Formik, Form, ErrorMessage } from "formik";
 import { ErrorMessageTwo, Input } from "../../styled-comps/Wrapper";
 import { AuthenticationContext } from "../../Context/AuthenticationContext";
 
-const Login = () => {
+const Login = (props) => {
   const { login } = useContext(AuthenticationContext);
   const [error, setError] = useState("");
+  console.log("hey", props.location.redirectRoute);
 
   return (
     <div className="login">
@@ -38,8 +39,13 @@ const Login = () => {
             console.log(JSON.stringify(values, null, 2));
             login(values.email, values.password)
               .then((data) => {
-                console.log(data);
                 setError("");
+                console.log(props);
+                props.history.push(
+                  props.location.redirectRoute
+                    ? props.location.redirectRoute.old.pathname
+                    : "/"
+                );
               })
               .catch((e) => {
                 console.log("Error", e);
