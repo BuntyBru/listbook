@@ -1,5 +1,4 @@
 .login {
-  background: #eff2f5;
   min-height: 100vh;
   padding-top: 72px;
 }
@@ -38,6 +37,6 @@
   font-weight: 800;
   color: white;
   font-size: 18px;
-  background-color: #18f2bf;
+  background-color: #1db954;
   border: none;
 }
