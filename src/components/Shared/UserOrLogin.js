@@ -18,6 +18,10 @@ function UserOrLogin({ user, logout }) {
             <img alt="prof_pic" src={user.display_picture} />
           </Dropdown.Toggle>
           <Dropdown.Menu>
+            <Link className="dropdown-item" to="/profile">
+              Dashboard
+            </Link>
+
             <Dropdown.Item onClick={() => logout()}>Logout</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
