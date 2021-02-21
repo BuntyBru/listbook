@@ -12,7 +12,6 @@ const NavBar = () => {
       <div>
         <img alt="icon" src="https://strataprop.com/assets/img/logo.svg" />
       </div>
-
       <UserOrLogin user={user} />
     </Navbar>
   );
