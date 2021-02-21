@@ -14,10 +14,14 @@ export const Navbar = styled.div`
   }
   p {
     color: white;
-    font-weight: 500;
+    font-weight: 800;
     margin: 0px;
     text-align: right;
-    padding-top: 10px;
+    padding-top: 14px;
+    font-size: 16px;
+  }
+  img {
+    width: 80px;
   }
 
   .navbar_identity {

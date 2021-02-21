@@ -7,7 +7,7 @@ import { AuthenticationContext } from "../../Context/AuthenticationContext";
 const Login = (props) => {
   const { login } = useContext(AuthenticationContext);
   const [error, setError] = useState("");
-  console.log("hey", props.location.redirectRoute);
+  //console.log("hey", props.location.redirectRoute);
 
   return (
     <div className="login">
@@ -36,11 +36,11 @@ const Login = (props) => {
           }}
           onSubmit={(values, { setSubmitting }) => {
             setError("");
-            console.log(JSON.stringify(values, null, 2));
+            //console.log(JSON.stringify(values, null, 2));
             login(values.email, values.password)
               .then((data) => {
                 setError("");
-                console.log(props);
+                // console.log(props);
                 props.history.push(
                   props.location.redirectRoute
                     ? props.location.redirectRoute.old.pathname
@@ -48,7 +48,7 @@ const Login = (props) => {
                 );
               })
               .catch((e) => {
-                console.log("Error", e);
+                //console.log("Error", e);
                 setError(e.response.data.message);
               });
             setSubmitting(false);

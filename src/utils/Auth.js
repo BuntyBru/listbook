@@ -77,6 +77,7 @@ const login = (username, password) => {
     my_app
       .post(`${URL}/api/v1/user-management/users/login/`, data)
       .then((response) => {
+        console.log("From Login", response);
         localStorage.setItem("my_app_user", JSON.stringify(response.data.data));
         getUser();
         resolve(response);

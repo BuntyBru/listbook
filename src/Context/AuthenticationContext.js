@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import auth from "../utils/Auth";
 
 export const AuthenticationContext = createContext();
@@ -8,7 +8,7 @@ const AuthenticationContextProvider = (props) => {
 
   const login = (username, password) => {
     return auth.login(username, password).then((data) => {
-      setUser(data.data);
+      setUser(data.data.data);
       return Promise.resolve(data);
     });
   };
@@ -18,16 +18,22 @@ const AuthenticationContextProvider = (props) => {
     await auth.logout();
   };
 
-  const getUser = async () => {
-    const user = await auth.getUser();
-    setUser(user ? user : null);
-  };
-
-  if (!fetched) {
+  useEffect(() => {
+    let cancelled = false;
+    const getUser = async () => {
+      const user = await auth.getUser();
+      //console.log("Auth Context", user);
+      setUser(user ? user : null);
+    };
     getUser().then(() => {
-      setFetched(true);
+      if (!cancelled) {
+        setFetched(true);
+      }
     });
-  }
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   if (!fetched) {
     return <div>LOADING.......</div>;
@@ -39,7 +45,6 @@ const AuthenticationContextProvider = (props) => {
         user,
         login,
         logout,
-        getUser,
         setUser,
       }}
     >
