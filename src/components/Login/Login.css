@@ -10,7 +10,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   align-items: center;
-  background-color: #fff;
+  background-color: none;
   border: none;
 }
 
@@ -29,6 +29,9 @@
   margin-top: 2rem;
   font-size: 17px;
   padding: 14px 16px;
+  background-color: #222222;
+  color: white;
+  font-weight: 600;
 }
 
 .formField button {
@@ -37,6 +40,6 @@
   font-weight: 800;
   color: white;
   font-size: 18px;
-  background-color: #1db954;
+  background-color: #1db9549e;
   border: none;
 }

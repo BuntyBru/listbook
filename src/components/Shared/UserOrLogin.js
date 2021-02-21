@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Dropdown } from "react-bootstrap";
+import "./bootstrapElements.css";
 
-function UserOrLogin({ user }) {
+function UserOrLogin({ user, logout }) {
   console.log("user in header", user);
   return (
     <div className="navbar_identity">
@@ -11,7 +13,14 @@ function UserOrLogin({ user }) {
           <button>Login</button>
         </Link>
       ) : (
-        <p>Hi, {user.first_name}</p>
+        <Dropdown>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <img alt="prof_pic" src={user.display_picture} />
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={() => logout()}>Logout</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       )}
     </div>
   );
