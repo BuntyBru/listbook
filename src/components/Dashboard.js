@@ -1,6 +1,9 @@
 import React from "react";
-import { DashboardPages } from "../styled-comps/DashboardPages";
-import { Link } from "react-router-dom";
+import {
+  DashboardPages,
+  DashboardLinkPage,
+} from "../styled-comps/DashboardPages";
+import { NavLink } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Overview from "./Overview";
 import Investments from "./Investments";
@@ -12,18 +15,26 @@ function Dashboard() {
     <Router>
       <DashboardPages>
         <div className="sidenav">
-          <ul>
+          <ul className="nav navbar-nav">
             <li>
-              <Link to="/profile/overview">Overview</Link>
+              <NavLink activeClassName="active" to="/profile/overview">
+                Overview
+              </NavLink>
             </li>
             <li>
-              <Link to="/profile/my-investments">My Investments</Link>
+              <NavLink activeClassName="active" to="/profile/my-investments">
+                My Investments
+              </NavLink>
             </li>
             <li>
-              <Link to="/profile/transactions">Transactions</Link>
+              <NavLink activeClassName="active" to="/profile/transactions">
+                Transactions
+              </NavLink>
             </li>
             <li>
-              <Link to="/profile/schedule">Schedule Call</Link>
+              <NavLink activeClassName="active" to="/profile/schedule">
+                Schedule Call
+              </NavLink>
             </li>
           </ul>
         </div>

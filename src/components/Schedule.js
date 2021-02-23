@@ -1,7 +1,8 @@
 import React from "react";
+import { InnerComponents } from "../styled-comps/DashboardPages";
 
 function Schedule() {
-  return <div>Schedule Call</div>;
+  return <InnerComponents>Schedule Call</InnerComponents>;
 }
 
 export default Schedule;

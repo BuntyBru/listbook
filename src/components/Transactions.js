@@ -1,7 +1,8 @@
 import React from "react";
+import { InnerComponents } from "../styled-comps/DashboardPages";
 
 function Transactions() {
-  return <div>Transactions page</div>;
+  return <InnerComponents>Transactions page</InnerComponents>;
 }
 
 export default Transactions;

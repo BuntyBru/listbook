@@ -1,7 +1,8 @@
 import React from "react";
+import { InnerComponents } from "../styled-comps/DashboardPages";
 
 function Overview() {
-  return <div>Overview Page</div>;
+  return <InnerComponents>Overview Page</InnerComponents>;
 }
 
 export default Overview;
