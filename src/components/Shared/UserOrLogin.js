@@ -18,7 +18,7 @@ function UserOrLogin({ user, logout }) {
             <img alt="prof_pic" src={user.display_picture} />
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Link className="dropdown-item" to="/profile">
+            <Link className="dropdown-item" to="/profile/overview">
               Dashboard
             </Link>
 

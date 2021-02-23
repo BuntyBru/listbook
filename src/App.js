@@ -15,7 +15,7 @@ function App() {
       <Switch>
         <LoggedUserRoute exact path="/login" component={Login} />
         <Route exact path="/" component={LandingPage} />
-        <ProtectedRoute exact path="/profile" component={Dashboard} />
+        <ProtectedRoute exact path="/profile/:id" component={Dashboard} />
         <Route path="*" component={() => "404 Not found"} />
       </Switch>
     </div>
