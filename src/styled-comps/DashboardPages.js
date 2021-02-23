@@ -63,3 +63,58 @@ const downTop = keyframes`
 export const InnerComponents = styled.div`
   animation: ${downTop} 1s;
 `;
+
+export const KycBannerWrapper = styled.div`
+  background-image: linear-gradient(270deg, #4b000000, #222222 52%);
+  padding: 22px 32px 32px;
+  border-radius: 8px;
+  font-family: "Mulish", sans-serif;
+  & h5 {
+    font-size: 18px;
+    font-weight: 900;
+  }
+`;
+
+const spin = keyframes`
+
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+  `;
+
+export const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  & svg {
+    animation: ${spin} infinite 1s linear;
+  }
+`;
+
+export const DetailsList = styled.div`
+  display: flex;
+
+  & p {
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: bolder;
+  }
+`;
+
+export const ElementKyc = styled.div`
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: bolder;
+
+  & svg {
+    color: ${(props) => {
+      if (props.props.filled) {
+        return "green";
+      } else {
+        return "red";
+      }
+    }};
+  }
+`;

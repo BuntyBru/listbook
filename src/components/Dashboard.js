@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  DashboardPages,
-  DashboardLinkPage,
-} from "../styled-comps/DashboardPages";
+import { DashboardPages } from "../styled-comps/DashboardPages";
 import { NavLink } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Overview from "./Overview";

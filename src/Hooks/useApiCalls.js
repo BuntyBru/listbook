@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { my_app } from "../utils/constants";
+import { my_app } from "../utils/constant";
 
 export const useGet = (url) => {
   const [state, setState] = useState({
