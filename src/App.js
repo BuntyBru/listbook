@@ -7,18 +7,21 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import LoggedUserRoute from "./utils/LoggedUserRoute";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Shared/Navbar";
+import ErrorBoundary from "./components/Shared/ErrorBoundary";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Switch>
-        <LoggedUserRoute exact path="/login" component={Login} />
-        <Route exact path="/" component={LandingPage} />
-        <ProtectedRoute exact path="/profile/:id" component={Dashboard} />
-        <Route path="*" component={() => "404 Not found"} />
-      </Switch>
-    </div>
+    <ErrorBoundary>
+      <div className="App">
+        <Navbar />
+        <Switch>
+          <LoggedUserRoute exact path="/login" component={Login} />
+          <Route exact path="/" component={LandingPage} />
+          <ProtectedRoute exact path="/profile/:id" component={Dashboard} />
+          <Route path="*" component={() => "404 Not found"} />
+        </Switch>
+      </div>
+    </ErrorBoundary>
   );
 }
 

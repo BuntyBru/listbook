@@ -6,11 +6,7 @@ import {
 } from "../../styled-comps/DashboardPages";
 import { useGet } from "../../Hooks/useApiCalls";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSpinner,
-  faCheckSquare,
-  faTimesCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import KycBannerInnerElement from "./KycBannerInnerElement";
 
 function Kycbanner() {
@@ -18,6 +14,10 @@ function Kycbanner() {
     "api/v1/user-management/users/kyc/status/" +
       JSON.parse(localStorage.my_app_user).profile_id
   );
+
+  const Recall = () => {
+    console.log("recall the api");
+  };
 
   const renderData = () => {
     if (isLoading) {
@@ -28,7 +28,18 @@ function Kycbanner() {
       );
     } else {
       if (error) {
-        return "Error....";
+        return (
+          <div>
+            Error{" "}
+            <button
+              onClick={() => {
+                Recall();
+              }}
+            >
+              Retry
+            </button>
+          </div>
+        );
       }
       return <ListofDetails data={data} />;
     }
