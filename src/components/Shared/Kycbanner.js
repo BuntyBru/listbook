@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   KycBannerWrapper,
   LoaderWrapper,
@@ -10,15 +10,13 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import KycBannerInnerElement from "./KycBannerInnerElement";
 
 function Kycbanner() {
+  const [retry, setRetry] = useState(false);
+
   const { data, isLoading, error } = useGet(
     "api/v1/user-management/users/kyc/status/" +
-      JSON.parse(localStorage.my_app_user).profile_id
+      JSON.parse(localStorage.my_app_user).profile_id,
+    retry
   );
-
-  const Recall = () => {
-    console.log("recall the api");
-  };
-
   const renderData = () => {
     if (isLoading) {
       return (
@@ -30,10 +28,10 @@ function Kycbanner() {
       if (error) {
         return (
           <div>
-            Error{" "}
+            Error
             <button
               onClick={() => {
-                Recall();
+                setRetry(!retry);
               }}
             >
               Retry

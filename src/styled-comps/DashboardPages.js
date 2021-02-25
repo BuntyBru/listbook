@@ -69,6 +69,7 @@ export const KycBannerWrapper = styled.div`
   padding: 22px 32px 32px;
   border-radius: 8px;
   font-family: "Mulish", sans-serif;
+  margin-bottom: 2.5rem;
   & h5 {
     font-size: 18px;
     font-weight: 900;
@@ -116,5 +117,17 @@ export const ElementKyc = styled.div`
         return "red";
       }
     }};
+  }
+`;
+
+export const InvestmentList = styled.div`
+  background-image: linear-gradient(270deg, #4b000000, #222222 52%);
+  padding: 22px 32px 32px;
+  border-radius: 8px;
+  font-family: "Mulish", sans-serif;
+  margin-bottom: 2.5rem;
+  & h5 {
+    font-size: 18px;
+    font-weight: 900;
   }
 `;
