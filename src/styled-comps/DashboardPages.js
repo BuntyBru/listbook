@@ -131,3 +131,11 @@ export const InvestmentList = styled.div`
     font-weight: 900;
   }
 `;
+
+export const InvestmentListEntry = styled.div`
+  background: #1e7e2159;
+  padding: 22px 32px 32px;
+  border-radius: 8px;
+  font-family: "Mulish", sans-serif;
+  margin-bottom: 2.5rem;
+`;

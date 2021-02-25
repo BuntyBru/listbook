@@ -4,7 +4,7 @@ import { Dropdown } from "react-bootstrap";
 import "./bootstrapElements.css";
 
 function UserOrLogin({ user, logout }) {
-  console.log("user in header", user);
+  //console.log("user in header", user);
   return (
     <div className="navbar_identity">
       {user === null || user === undefined ? (

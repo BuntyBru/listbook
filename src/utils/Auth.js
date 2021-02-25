@@ -22,7 +22,7 @@ const getUser = () => {
         // We can do this automatically using axios interceptors
         return refreshToken()
           .then((response) => {
-            console.log("HEYYYY", currUser);
+            //console.log("HEYYYY", currUser);
             //currUser.refresh = response.data.refresh_token;
             currUser.access = response.data.access;
             currUser.lastRefresh = new Date().getTime();
@@ -45,7 +45,7 @@ const getUser = () => {
                   resolve(response);
                 })
                 .catch((error) => {
-                  console.log("erorororor");
+                  //console.log("erorororor");
                   reject(error);
                 });
             });
@@ -53,7 +53,7 @@ const getUser = () => {
           .catch((error) => {
             // if refresh token failed logout
             Promise.reject(error);
-            console.log("LOGOUT INSIDE");
+            //console.log("LOGOUT INSIDE");
             logout();
           });
       }
@@ -77,13 +77,13 @@ const login = (username, password) => {
     my_app
       .post(`${URL}/api/v1/user-management/users/login/`, data)
       .then((response) => {
-        console.log("From Login", response);
+        // console.log("From Login", response);
         localStorage.setItem("my_app_user", JSON.stringify(response.data.data));
         getUser();
         resolve(response);
       })
       .catch((error) => {
-        console.log(error.response.data.message);
+        //console.log(error.response.data.message);
         reject(error);
         //  return error;
       });
@@ -108,7 +108,7 @@ const refreshToken = () => {
 
 const logout = () => {
   localStorage.removeItem("my_app_user");
-  console.log("LOGOUT BEING RUNNNN");
+  //console.log("LOGOUT BEING RUNNNN");
   return Promise.resolve();
 };
 

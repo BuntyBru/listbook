@@ -39,7 +39,7 @@ const Login = (props) => {
             //console.log(JSON.stringify(values, null, 2));
             login(values.email, values.password)
               .then((data) => {
-                console.log("After then", data);
+                //console.log("After then", data);
                 props.history.push(
                   props.location.redirectRoute
                     ? props.location.redirectRoute.old.pathname
