@@ -38,7 +38,6 @@ export const DashboardPages = styled.div`
   }
 
   .mainBody {
-    height: 100%;
     overflow: auto;
     margin-left: 300px;
     padding: 30px;
@@ -133,9 +132,63 @@ export const InvestmentList = styled.div`
 `;
 
 export const InvestmentListEntry = styled.div`
-  background: #1e7e2159;
-  padding: 22px 32px 32px;
+  background-image: linear-gradient(270deg, #4b000000, #222222 52%);
   border-radius: 8px;
   font-family: "Mulish", sans-serif;
   margin-bottom: 2.5rem;
+  display: flex;
+
+  & div {
+    flex: 1;
+    text-align: left;
+  }
+
+  img {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .other-part {
+    flex: 4;
+
+    padding: 20px 20px;
+  }
+
+  .location_type {
+    display: flex;
+  }
+
+  .location_type p {
+    flex: 1;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0px;
+  }
+
+  .owner {
+    margin: 0px;
+    margin-top: 20px;
+  }
+
+  .details {
+    margin-top: 2rem;
+    display: flex;
+  }
+  .details div {
+    width: 200px;
+    background: white;
+    color: #222222;
+    margin-right: 100px;
+    padding: 10px 20px;
+  }
+
+  .details div .amount {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 0px;
+  }
+  .details div .sub {
+    color: black;
+  }
 `;

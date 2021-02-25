@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { useGet } from "../../Hooks/useApiCalls";
-import {
-  InvestmentList,
-  InvestmentListEntry,
-} from "../../styled-comps/DashboardPages";
 import LoaderElement from "./LoaderElement";
 import RetryError from "./RetryError";
+import ListEntryCard from "./ListEntryCard";
 
 function InvestmentsList() {
   const [retry, setRetry] = useState(false);
@@ -23,9 +20,7 @@ function InvestmentsList() {
         return <RetryError retryBool={retry} retryFunc={setRetry} />;
       }
       return data.data.data.map((x) => (
-        <InvestmentListEntry key={x.property_name}>
-          {x.property_name}
-        </InvestmentListEntry>
+        <ListEntryCard key={x.property_name} property={x} />
       ));
     }
   };
@@ -33,7 +28,7 @@ function InvestmentsList() {
   return (
     <div>
       <p className="headingSection">Investments List</p>
-      <InvestmentList>{renderFunction()}</InvestmentList>
+      <div>{renderFunction()}</div>
     </div>
   );
 }
