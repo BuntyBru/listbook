@@ -8,6 +8,7 @@ import { useGet } from "../../Hooks/useApiCalls";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import KycBannerInnerElement from "./KycBannerInnerElement";
+import RetryError from "./RetryError";
 
 function Kycbanner() {
   const [retry, setRetry] = useState(false);
@@ -26,18 +27,7 @@ function Kycbanner() {
       );
     } else {
       if (error) {
-        return (
-          <div>
-            Error
-            <button
-              onClick={() => {
-                setRetry(!retry);
-              }}
-            >
-              Retry
-            </button>
-          </div>
-        );
+        return <RetryError retryBool={retry} retryFunc={setRetry} />;
       }
       return <ListofDetails data={data} />;
     }
