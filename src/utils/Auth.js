@@ -14,12 +14,13 @@ const getUser = () => {
       return response;
     },
     (error) => {
-      if (error.response.status === 401) {
+      if (error.response.status === 401 || error.response.status === 403) {
         // 401 is Unauthorized error
         // which means that this request failed
         // what we need to do is send a refresh request then resend the same request
         // that failed but with the new access point.
         // We can do this automatically using axios interceptors
+        console.log("Error===============>", error.response.status);
         return refreshToken()
           .then((response) => {
             //console.log("HEYYYY", currUser);

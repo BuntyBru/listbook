@@ -23,6 +23,7 @@ export const useGet = (url, dependency) => {
 
     function hey() {
       setState({ data: null, isLoading: true, error: null });
+
       return my_app
         .get(url)
         .then((res) => {

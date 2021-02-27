@@ -29,7 +29,7 @@ function MyInvestments() {
     }
   };
 
-  console.log(obj);
+  //console.log(obj);
 
   return (
     <div>
