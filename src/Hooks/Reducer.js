@@ -2,7 +2,6 @@ function Reducer(obj, action) {
   switch (action) {
     case "ongoing":
       console.log("hey", action);
-
       return [
         "ongoing investment1",
         "ongoing investment2",
