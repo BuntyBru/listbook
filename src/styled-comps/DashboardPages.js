@@ -146,6 +146,7 @@ export const InvestmentListEntry = styled.div`
   img {
     width: 100%;
     min-height: 100%;
+    height: 100%;
   }
 
   .other-part {

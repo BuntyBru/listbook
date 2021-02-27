@@ -46,6 +46,14 @@
   font-weight: 800;
   margin-bottom: 4px;
 }
+
+.button__series {
+  display: flex;
+}
+
+.button__series button {
+  margin-right: 30px;
+}
 @keyframes spin {
   from {
     transform: rotate(0deg);

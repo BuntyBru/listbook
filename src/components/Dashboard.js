@@ -7,7 +7,7 @@ import Investments from "./Investments";
 import Transactions from "./Transactions";
 import Schedule from "./Schedule";
 
-function Dashboard() {
+const Dashboard = () => {
   return (
     <Router>
       <DashboardPages>
@@ -51,6 +51,6 @@ function Dashboard() {
       </DashboardPages>
     </Router>
   );
-}
+};
 
 export default Dashboard;
