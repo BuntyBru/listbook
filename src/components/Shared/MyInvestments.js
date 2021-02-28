@@ -3,6 +3,7 @@ import { Buttons } from "../../styled-comps/Buttons";
 import ActiveInvestments from "../MyInvestmentsPage/ActiveInvestments";
 import OngoingInvestments from "../MyInvestmentsPage/OngoingInvestments";
 import SoldInvestments from "../MyInvestmentsPage/SoldInvestments";
+import { useGet } from "../../Hooks/useApiCalls";
 
 function MyInvestments() {
   const [investmentName, setInvestmentName] = useState("ongoing");
@@ -13,10 +14,22 @@ function MyInvestments() {
     soldBool: false,
   });
 
+  const [retry, setRetry] = useState(false);
+
+  const { data, isLoading, error } = useGet(
+    "api/v1/platforms/investors/ongoing-investments?profiles_in=" +
+      JSON.parse(localStorage.my_app_user).profile_id,
+    retry
+  );
+
   const renderFunction = () => {
     switch (investmentName) {
       case "ongoing":
-        return <OngoingInvestments />;
+        return (
+          <OngoingInvestments
+            values={{ data, isLoading, error, retry, setRetry }}
+          />
+        );
 
       case "active":
         return <ActiveInvestments />;

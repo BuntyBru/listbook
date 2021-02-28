@@ -4,21 +4,29 @@ import { useGet } from "../../Hooks/useApiCalls";
 import LoaderElement from "../Shared/LoaderElement";
 import RetryError from "../Shared/RetryError";
 
-function OngoingInvestments() {
-  const [retry, setRetry] = useState(false);
-  const { data, isLoading, error } = useGet(
+function OngoingInvestments(props) {
+  console.log(props);
+  //const [retry, setRetry] = useState(false);
+  /*const { data, isLoading, error } = useGet(
     "api/v1/platforms/investors/ongoing-investments?profiles_in=" +
       JSON.parse(localStorage.my_app_user).profile_id,
     retry
-  );
+  );*/
+
   const renderFunction = () => {
-    if (isLoading) {
+    if (props.values.isLoading) {
       return <LoaderElement />;
     } else {
-      if (error) {
-        return <RetryError retryBool={retry} retryFunc={setRetry} />;
+      if (props.values.error) {
+        return (
+          <RetryError
+            retryBool={props.values.retry}
+            retryFunc={props.values.setRetry}
+          />
+        );
       }
-      return <InvestmentsPageView data={data} />;
+      //return "check";
+      return <InvestmentsPageView data={props.values.data} />;
     }
   };
 
